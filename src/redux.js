@@ -6,6 +6,8 @@ const POKEAPI = 'https://pokeapi.co/api/v2/pokemon/';
 
 const initialPokemonState = {
   pokemon: [],
+  loading: true,
+  error: false,
 };
 
 const initialUserState = {
@@ -37,7 +39,6 @@ const promiseDelay = (cb) => {
     window.setTimeout(() => {
       cb().then((results) => {
         const shouldFail = getShouldFail();
-        console.log('shoould fail');
         if (shouldFail) {
           rej();
         } else {
@@ -53,7 +54,7 @@ const getShouldFail = (content) => {
   // if (randomNumber > 4) {
   //   return true;
   // }
-  return true;
+  return false;
 };
 
 //action creators
